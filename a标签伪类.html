@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>a标签伪类</title>
+    <style>
+        a[href]:after {
+            content: " (" attr(href) ") ";
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <a href="https://github.com/">github</a>
+    </div>
+</body>
+</html>

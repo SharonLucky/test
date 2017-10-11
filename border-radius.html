@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .vertical {
+            background: #fb3;
+            width: 200px;
+            height: 200px;
+            /*border-radius: 100px; !* >= 正方形边长的一半 *!*/
+            border-radius:10px / 5px 20px;
+        }
+        .shuye{
+            width: 200px;
+            height: 200px;
+            background-color: green;
+            border-radius: 200px 0 200px 0;
+        }
+
+        .box{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 400px;
+        }
+        .box1{
+            width: 100px;
+            height: 170px;
+            background-color: red;
+            border-radius: 50px 50px 0px 0;
+            transform-origin: 50px 50px;
+            transform: rotate(-45deg);
+        }
+        .box2{
+            width: 100px;
+            height: 170px;
+            background-color: red;
+            border-radius: 50px 50px 0px 0;
+            transform-origin: 50px 50px;
+            transform: rotate(45deg);
+        }
+
+        .heart{ position:relative; width:100px; height:80px; background:blue;}
+        .heart:before{ position:absolute; content:""; left:50px;top:0;width:50px;height:80px; background:red;border-radius: 50px 50px 0 0;}
+
+        /*取基点为左下角，逆时针转45deg*/
+        .heart:before{ 
+            position:absolute; 
+            content:""; 
+            left:50px;
+            top:0;
+            width:50px;
+            height:80px; 
+            background:red;
+            border-radius: 50px 50px 0 0; 
+            -webkit-transform: rotate(-45deg); 
+            -webkit-transform-origin: 0 100%;
+        }
+        /*取右下角为基点旋转：*/
+        .heart:after{ 
+            position:absolute; 
+            content:""; 
+            left:0px;
+            top:0;
+            width:50px;
+            height:80px; 
+            background:yellow;
+            border-radius: 50px 50px 0 0; 
+            -webkit-transform: rotate(45deg); 
+            -webkit-transform-origin: 100% 100%;
+        }
+    </style>
+</head>
+<body>
+<!-- border-radius ，有一个鲜为人知的真相：它可以单独指定水平
+和垂直半径，只要用一个斜杠（ / ）分隔这两个值即可。这个特性允许我
+们在拐角处创建椭圆圆角-->
+<div class="vertical"></div>
+
+<!--画一片树叶-->
+<div class="shuye"></div>
+
+<!--画一个爱心-->
+<div class="box">
+    <div class="box1"></div>
+    <div class="box2"></div>
+</div>
+
+<div class="heart"></div>
+</body>
+</html>
